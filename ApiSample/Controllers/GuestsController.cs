@@ -43,7 +43,12 @@ namespace ApiSample.Controllers
         [HttpGet("{id:int}")]
         public IActionResult GetGuest(int id)
         {
-            return Ok(_service.GetGuestById(id));
+            var result -_service.GetGuestById(id);
+             if  (result !=null)
+               return Ok(result);
+             else 
+                return NoFound("Something went wrong")
+
         }
 
         //... api/guests [+body]
